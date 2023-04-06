@@ -1,0 +1,70 @@
+v13-learning
+
+** users
+- id
+- name
+- email
+- password
+- type "admin, student"
+
+** sliders
+- id
+- title
+- subtitle
+- content
+- image
+- btn1_link
+- btn2_link
+
+** features
+- id
+- icon
+- title
+- cotent
+
+** categories
+- id
+- title
+- image
+
+** courses
+- id
+- title
+- image
+- price
+- duration
+- content
+- instructor_id
+- category_id
+
+** reviews
+- id
+- user_id
+- course_id
+- star
+- content
+
+** instructors
+- id
+- name
+- image
+- position
+- fb_link
+- tw_link
+- in_link
+- ln_link
+
+** testimonials
+- id
+- name
+- image
+- position
+- content
+
+** gallery
+- id
+- image
+
+course_user
+- course_id
+- user_id
