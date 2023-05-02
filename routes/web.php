@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\APITESTController;
 use App\Http\Controllers\SiteController;
 
 // use App\Http\Controllers\Admin\CategoryController;
@@ -41,3 +42,7 @@ Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact')
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('api-test', [APITESTController::class, 'test']);
+Route::get('weather', [APITESTController::class, 'weather']);
