@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\APITESTController;
 use App\Http\Controllers\SiteController;
 
@@ -23,6 +24,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'checktype')->group(f
 
     Route::resource('categories', CategoryController::class);
     Route::resource('courses', CourseController::class);
+    Route::resource('roles', RoleController::class);
 
 });
 
@@ -36,6 +38,7 @@ Route::get('/courses', [SiteController::class, 'courses'])->name('site.courses')
 Route::get('/courses/{id}', [SiteController::class, 'course'])->name('site.course');
 Route::get('/courses/{id}/enroll', [SiteController::class, 'enroll'])->name('site.enroll')->middleware('auth');
 Route::get('/courses/{id}/payment', [SiteController::class, 'payment'])->name('site.payment')->middleware('auth');
+Route::post('/courses/{id}/review', [SiteController::class, 'review'])->name('site.review');
 
 Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact');
 

@@ -49,6 +49,12 @@
                     <span>Dashboard</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.roles.index') }}">
+                    <i class="fas fa-fw fa-lock"></i>
+                    <span>Roles</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 

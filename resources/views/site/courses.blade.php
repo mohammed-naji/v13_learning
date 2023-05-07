@@ -27,12 +27,31 @@
                         <div class="text-center p-4 pb-0">
                             <h3 class="mb-0">${{ $course->price }}</h3>
                             <div class="mb-3">
+                                {{-- {{ round($course->reviews->avg('star'), 2) }} --}}
+
+            @php $rating = round($course->reviews->avg('star'), 2); @endphp
+
+            @foreach(range(1,5) as $i)
+                <span class="fa-stack text-primary" style="width:1em">
+                    <i class="far fa-star fa-stack-1x"></i>
+
+                    @if($rating >0)
+                        @if($rating >0.5)
+                            <i class="fas fa-star fa-stack-1x"></i>
+                        @else
+                            <i class="fas fa-star-half fa-stack-1x"></i>
+                        @endif
+                    @endif
+                    @php $rating--; @endphp
+                </span>
+            @endforeach
+
+                                {{-- <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
+                                <small class="fa fa-star text-primary"></small> --}}
+                                <small>({{ $course->reviews->count() }})</small>
                             </div>
                             <h5 class="mb-4">{{ $course->title }}</h5>
                         </div>

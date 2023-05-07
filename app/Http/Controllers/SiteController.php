@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Payment;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -122,5 +123,22 @@ class SiteController extends Controller
             return view('site.status', compact('type', 'msg'));;
         }
 
+    }
+
+    public function review(Request $request, $id)
+    {
+        // dd($request->all());
+        $request->validate([
+            'rating' => 'required'
+        ]);
+
+        Review::create([
+            'star' => $request->rating,
+            'content' => $request->comment,
+            'user_id' => Auth::id(),
+            'course_id' => $id
+        ]);
+
+        return redirect()->back();
     }
 }
